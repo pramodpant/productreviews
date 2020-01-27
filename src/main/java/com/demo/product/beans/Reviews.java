@@ -12,10 +12,8 @@ public class Reviews {
 	private String prodName;
 	private String prodDesc;
 	private String review_comments;
-	private String ratings;
 	
-	
-	
+
 	public String getProductId() {
 		return productId;
 	}
@@ -40,13 +38,7 @@ public class Reviews {
 	public void setReview_comments(String review_comments) {
 		this.review_comments = review_comments;
 	}
-	public String getRatings() {
-		return ratings;
-	}
-	public void setRatings(String ratings) {
-		this.ratings = ratings;
-	}
-	
+
    
 
 

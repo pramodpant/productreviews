@@ -5,7 +5,7 @@
 
 	<groupId>com.demo.products</groupId>
 	<artifactId>GetReviews</artifactId>
-	<version>v1</version>
+	<version>v0.1</version>
 	<packaging>jar</packaging>
 
 	<name>GetReviews</name>

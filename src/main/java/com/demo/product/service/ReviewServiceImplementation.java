@@ -29,7 +29,9 @@ public class ReviewServiceImplementation implements ReviewsService{
 	public List <Reviews> findAllReviewsById(String id) {
 		// TODO Auto-generated method stub
 		
-		return productRepository.findAllReviewsById(id);
+		List<Reviews> reviews = productRepository.findAllReviewsById(id);
+		System.out.println("findAllReviewsById..."+id);
+		return reviews;
 		
 		
 	}
