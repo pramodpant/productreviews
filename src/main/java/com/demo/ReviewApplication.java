@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -34,7 +36,13 @@ public class ReviewApplication {
 	@Autowired	
 	ReviewsService productServiceImplementation;
 	 
-		
+	
+	 @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, value="/submit")
+	    public void create(@RequestBody Reviews reviews) {
+		   System.out.println("Inserting for Product ID "+reviews.getProductId());
+		   productServiceImplementation.create(reviews);
+	    }
+	 
 	 @RequestMapping(method=RequestMethod.GET, value="/show/{id}")
 	    public List <ReviewResponse> getReview(@PathVariable String id) {
 		    
@@ -47,6 +55,8 @@ public class ReviewApplication {
 	        	ReviewResponse reviewResponse = new ReviewResponse();
 	        	System.out.println("product id ->"+reviews.get(i).getProductId());
 	        	
+	        	reviewResponse.setProdName(reviews.get(i).getProdName());
+	        	reviewResponse.setProdDesc(reviews.get(i).getProdDesc());
 	        	reviewResponse.setReview_comments(reviews.get(i).getReview_comments());
 	        	reviewResponse.setProductId(reviews.get(i).getProductId());
 	        	
